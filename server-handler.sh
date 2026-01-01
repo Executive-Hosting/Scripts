@@ -45,11 +45,12 @@ source /root/.bashrc
 # Setting up PM2 Profile
 echo "Setting up PM2 Profile..."
 sleep 1
-echo "#!/bin/bash\n" >> /root/server-handler/start.sh
+echo -e '#!/bin/bash\n' >> /root/server-handler/start.sh
 echo "cd /root/server-handler/" >> /root/server-handler/start.sh
 echo "bun run src/main.ts" >> /root/server-handler/start.sh
 chmod +x /root/server-handler/start.sh
-
+pm2 start --name service --no-autostart /root/server-handler/start.sh
+pm2 save
 
 echo "Server Handler Install Script Complete!"
-exit 0
+sleep 3
