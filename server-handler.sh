@@ -49,8 +49,9 @@ echo -e '#!/bin/bash\n' >> /root/server-handler/start.sh
 echo "cd /root/server-handler/" >> /root/server-handler/start.sh
 echo "bun run src/main.ts" >> /root/server-handler/start.sh
 chmod +x /root/server-handler/start.sh
-pm2 start --name service --no-autostart /root/server-handler/start.sh
+pm2 start --name service /root/server-handler/start.sh
+pm2 stop service
 pm2 save
 
-echo "Server Handler Install Script Complete!"
+echo "Server Handler Install Script Complete! Please add your Discord Token and Discord ID to the .env file, and edit the lib/config.json file."
 sleep 3
