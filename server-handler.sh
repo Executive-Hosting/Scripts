@@ -14,7 +14,7 @@ apt upgrade -y
 # Installing Requirements
 echo "Installing Requirements..."
 sleep 1
-apt install curl wget unzip git -y
+apt install curl wget unzip git libcurl4 -y
 
 # Installing Bun
 echo "Installing bun..."
